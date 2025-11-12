@@ -60,6 +60,9 @@
 
 ### ☁️ Project tracking:
 ![ClickUp](https://img.shields.io/badge/clickup-7B68EE.svg?style=for-the-badge&logo=clickup&logoColor=white)
+![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white)
+![Asana](https://img.shields.io/badge/asana-F06A6A.svg?style=for-the-badge&logo=asana&logoColor=white)
+
 
 ### 💻 IDEs/Editors:
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
