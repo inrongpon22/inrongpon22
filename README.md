@@ -1,13 +1,30 @@
 <h1 align="center">Hi 👋, I'm Phanupong</h1>
 <h3 align="center">A passionate frontend developer from Chiang Mai, Thailand</h3>
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=inrongpon22&label=Profile%20views&color=0e75b6&style=flat" alt="inrongpon22" /> </p>
+---
 
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=inrongpon22" alt="inrongpon22" /></a> </p>
+<div align="center">
+    <p>
+        <img src="https://komarev.com/ghpvc/?username=inrongpon22&label=Profile%20views&color=0e75b6&style=flat" alt="inrongpon22" />
+    </p>
 
+    <p>
+        <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=inrongpon22" alt="inrongpon22" /></a>
+    </p>
+</div>
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=inrongpon22&show_icons=true&locale=en&layout=compact" alt="inrongpon22" /></p>
+---
 
+<div align="center">
+    <img src="https://github-readme-stats.vercel.app/api?username=inrongpon22&show_icons=true&locale=en" alt="inrongpon22 GitHub Stats" width="400"/>
+    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=inrongpon22&show_icons=true&locale=en&layout=compact" alt="inrongpon22 Top Languages" width="400"/>
+</div>
+
+<div align="center">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=inrongpon22&" alt="inrongpon22 GitHub Streak" />
+</div>
+
+---
 
 ### 📋 Languages:
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -82,6 +99,3 @@
 ### 🤖 Artificial Intelligence and Bots:
 ![ChatGPT](https://img.shields.io/badge/chatGPT-74aa9c?style=for-the-badge&logo=openai&logoColor=white)
 ![Google Gemini](https://img.shields.io/badge/google%20gemini-8E75B2?style=for-the-badge&logo=google%20gemini&logoColor=white)
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=inrongpon22&show_icons=true&locale=en" alt="inrongpon22" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=inrongpon22&" alt="inrongpon22" /></p>
