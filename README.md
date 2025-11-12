@@ -7,7 +7,6 @@
     <p>
         <img src="https://komarev.com/ghpvc/?username=inrongpon22&label=Profile%20views&color=0e75b6&style=flat" alt="inrongpon22" />
     </p>
-
     <p>
         <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=inrongpon22" alt="inrongpon22" /></a>
     </p>
