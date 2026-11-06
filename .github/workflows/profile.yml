@@ -1,0 +1,93 @@
+# Regenerates every image on the profile README and commits the ones that changed.
+# The public servers these cards used to come from were shut down, so the cards
+# are now rendered here and served from this repository.
+name: Profile
+
+on:
+  schedule:
+    # Just after midnight UTC, so the koi shows the day that just ended.
+    - cron: "20 0 * * *"
+  workflow_dispatch:
+  push:
+    paths: [.github/workflows/profile.yml]
+
+permissions:
+  contents: write
+
+concurrency: profile
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Each generator may fail on its own (rate limit, outage) without blocking
+      # the others; whatever it produced last time stays in the repository.
+      - name: Draw the koi
+        continue-on-error: true
+        uses: yalongwastaken/git-koi@v1
+        with:
+          body: white
+          output-dir: koi
+
+      - name: Generate stats card
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=inrongpon22&show_icons=true&locale=en
+          path: profile/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate top languages card
+        continue-on-error: true
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=inrongpon22&layout=compact&locale=en
+          path: profile/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      # github-profile-trophy has no Action, and its public server is gone.
+      # Try the original host first, then volunteer mirrors listed in its README.
+      - name: Fetch trophy card
+        continue-on-error: true
+        shell: bash
+        run: |
+          hosts=(
+            https://github-profile-trophy.vercel.app
+            https://trophy.ryglcloud.net
+            https://github-trophy-jagratadeb.vercel.app
+            https://trophygithubreadmelang.cybee.dpdns.org
+          )
+          mkdir -p profile
+          tmp="$RUNNER_TEMP/trophy.svg"
+          for host in "${hosts[@]}"; do
+            if curl -sfL --max-time 30 "$host/?username=inrongpon22" -o "$tmp" \
+                && grep -q '<svg' "$tmp" \
+                && [ "$(wc -c < "$tmp")" -gt 2048 ]; then
+              mv "$tmp" profile/trophy.svg
+              echo "Trophy fetched from $host"
+              exit 0
+            fi
+            echo "No usable trophy from $host"
+          done
+          echo "::warning::Every trophy host failed; keeping the previous profile/trophy.svg"
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          for f in koi/koi.gif profile/stats.svg profile/top-langs.svg profile/trophy.svg; do
+            [ -e "$f" ] && git add "$f"
+          done
+          if git diff --cached --quiet; then
+            echo "Nothing changed; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --quiet --message "profile: refresh cards and koi"
+          git push --quiet
